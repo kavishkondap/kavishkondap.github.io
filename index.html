@@ -395,7 +395,7 @@
     <div id="older-papers" hidden>
       <div class="entry">
         <div class="entry-media">
-          <img src="assets/csdl.jpg?v=b74cbc67" alt="CSDL, the Computational System Design Language" loading="lazy" width="480" height="270">
+          <img src="assets/task-scheduling.jpg?v=6e405bac" alt="Optimality against wall-clock time for two solver configurations" loading="lazy" width="480" height="270">
         </div>
         <div class="entry-body">
           <p class="entry-title">
@@ -408,7 +408,10 @@
 
       <div class="entry">
         <div class="entry-media">
-          <img src="assets/csdl.jpg?v=b74cbc67" alt="CSDL, the Computational System Design Language" loading="lazy" width="480" height="270">
+          <video src="assets/adjoint-mdo.mp4?v=0c4b236f" poster="assets/adjoint-mdo.jpg?v=fa3c4f83" autoplay loop muted
+                 playsinline preload="metadata" disablepictureinpicture
+                 controlslist="nodownload nofullscreen noremoteplayback"
+                 aria-label="Lift-plus-cruise aircraft configuration used as a large-scale MDO model"></video>
         </div>
         <div class="entry-body">
           <p class="entry-title">
@@ -447,17 +450,33 @@
 </div>
 
 <script>
-  // Email address is not present in the page source; the real mailto: href is
-  // set at runtime so that crawlers harvesting raw HTML find nothing to scrape.
-  // Setting href (rather than intercepting the click and assigning
-  // window.location) keeps these behaving like ordinary links: middle-click,
-  // open-in-new-tab and "copy email address" all work.
+  // The address is absent from the page source and assembled at runtime, so
+  // crawlers harvesting raw HTML find nothing to scrape.
+  //
+  // We show the address as the link text rather than the word "Email". A
+  // mailto: link does nothing at all when the visitor has no mail client
+  // registered, which is common, so the address itself has to be readable and
+  // selectable. Clicking still opens a mail client for those who have one, and
+  // copies the address to the clipboard as a fallback.
   document.querySelectorAll("a.js-email").forEach(function (a) {
+    var addr;
     try {
-      a.href = "mailto:" + atob(a.getAttribute("data-e"));
+      addr = atob(a.getAttribute("data-e"));
     } catch (err) {
-      /* leave the href as-is if decoding fails */
+      return;
     }
+    a.href = "mailto:" + addr;
+    a.textContent = addr;
+    a.title = "Copy " + addr;
+    a.addEventListener("click", function () {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(addr).then(function () {
+          var prev = a.textContent;
+          a.textContent = "copied";
+          setTimeout(function () { a.textContent = prev; }, 1200);
+        }, function () { /* clipboard blocked; the mailto still fires */ });
+      }
+    });
   });
 
   // Respect a reduced-motion preference: hold the poster frame instead of looping.
