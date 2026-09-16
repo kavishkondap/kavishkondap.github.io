@@ -28,7 +28,7 @@
     --accent: #8a4f24;
     --serif:  "Source Serif 4", Georgia, "Times New Roman", serif;
     --mono:   "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-    --max:    668px;
+    --max:    800px;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -136,6 +136,7 @@
 
   /* ---------- bio ---------- */
 
+  .bio { max-width: 648px; }
   .bio p { margin: 0 0 13px; }
   .bio p:last-child { margin-bottom: 0; }
 
@@ -164,8 +165,32 @@
 
   /* ---------- papers / projects ---------- */
 
-  .entry { margin-bottom: 25px; }
+  .entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 26px;
+    margin-bottom: 30px;
+  }
   .entry:last-child { margin-bottom: 0; }
+
+  .entry-media {
+    flex: 0 0 240px;
+    width: 240px;
+    line-height: 0;
+  }
+  .entry-media img,
+  .entry-media video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 3px;
+    background: var(--rule);
+  }
+
+  .entry-body { flex: 1 1 auto; min-width: 0; }
+
+  /* Entries with no media keep their text on the same left edge as the rest. */
+  .entry--nomedia .entry-body { padding-left: 266px; }
 
   .entry-title {
     font-weight: 600;
@@ -245,6 +270,9 @@
     h1 { font-size: 25px; margin-bottom: 7px; }
     .contact { font-size: 12px; gap: 3px 6px; }
     section { margin-top: 42px; }
+    .entry { flex-direction: column; gap: 12px; margin-bottom: 30px; }
+    .entry-media { flex: 0 0 auto; width: 100%; max-width: 360px; }
+    .entry--nomedia .entry-body { padding-left: 0; }
   }
 </style>
 </head>
@@ -294,69 +322,103 @@
     <p class="note">* denotes equal contribution.</p>
 
     <div class="entry">
-      <p class="entry-title">
-        <a href="https://uynitsuj.github.io/warp-rm/" target="_blank" rel="noopener noreferrer">WARP-RM: A Warp-Augmented Relative Progress Reward Model for Data Curation</a>
-      </p>
-      <p class="authors">Justin Yu*, Andrew Goldberg*, <span class="me">Kavish Kondap*</span>,
-        Karim El-Refai*, Ethan Ransing, Qianzhong Chen, Mac Schwager, Fred Shentu, Philipp Wu,
-        Ken Goldberg</p>
-      <p class="venue">CoRL 2026</p>
-      <p class="blurb">A self-supervised reward model that curates behavior cloning data with no human
-        annotations. Filtering suboptimal frames takes t-shirt folding from 2/20 to 19/20.</p>
+      <div class="entry-media">
+        <video src="assets/warp-rm.mp4" poster="assets/warp-rm.jpg" autoplay loop muted
+               playsinline preload="metadata" disablepictureinpicture
+               controlslist="nodownload nofullscreen noremoteplayback" aria-label="Bimanual robot folding a t-shirt, trained with WARP-BC"></video>
+      </div>
+      <div class="entry-body">
+        <p class="entry-title">
+          <a href="https://uynitsuj.github.io/warp-rm/" target="_blank" rel="noopener noreferrer">WARP-RM: A Warp-Augmented Relative Progress Reward Model for Data Curation</a>
+        </p>
+        <p class="authors">Justin Yu*, Andrew Goldberg*, <span class="me">Kavish Kondap*</span>,
+          Karim El-Refai*, Ethan Ransing, Qianzhong Chen, Mac Schwager, Fred Shentu, Philipp Wu,
+          Ken Goldberg</p>
+        <p class="venue">CoRL 2026</p>
+        <p class="blurb">A self-supervised reward model that curates behavior cloning data with no human
+          annotations. Filtering suboptimal frames takes t-shirt folding from 2/20 to 19/20.</p>
+    
+      </div>
     </div>
 
     <div class="entry">
-      <p class="entry-title">
-        <a href="https://autolab.berkeley.edu/assets/publications/media/2026_ICRA_Robo_SQ_final_version.pdf" target="_blank" rel="noopener noreferrer">RoboSQ: Semantic Data Queries for Semi-structured Heterogeneous Robot Datasets</a>
-      </p>
-      <p class="authors">Kaiyuan Chen, Shuangyu Xie, Kush Hari, Andrew Goldberg,
-        <span class="me">Kavish Kondap</span>, Ken Goldberg</p>
-      <p class="venue">ICRA 2026 <span class="sep">&middot;</span> <span class="oral">oral</span></p>
-      <p class="blurb">A VLM-based pipeline that finds and removes sub-optimal teleoperated
-        demonstrations, and measures what that does to ACT and &pi;<sub>0.5</sub> policies.</p>
+      <div class="entry-media">
+        <img src="assets/robosq.jpg" alt="RoboSQ pipeline filtering robot trajectories by semantic query" loading="lazy" width="480">
+      </div>
+      <div class="entry-body">
+        <p class="entry-title">
+          <a href="https://autolab.berkeley.edu/assets/publications/media/2026_ICRA_Robo_SQ_final_version.pdf" target="_blank" rel="noopener noreferrer">RoboSQ: Semantic Data Queries for Semi-structured Heterogeneous Robot Datasets</a>
+        </p>
+        <p class="authors">Kaiyuan Chen, Shuangyu Xie, Kush Hari, Andrew Goldberg,
+          <span class="me">Kavish Kondap</span>, Ken Goldberg</p>
+        <p class="venue">ICRA 2026 <span class="sep">&middot;</span> <span class="oral">oral</span></p>
+        <p class="blurb">A VLM-based pipeline that finds and removes sub-optimal teleoperated
+          demonstrations, and measures what that does to ACT and &pi;<sub>0.5</sub> policies.</p>
+    
+      </div>
     </div>
 
     <div class="entry">
-      <p class="entry-title">
-        <a href="https://autolab.berkeley.edu/assets/publications/media/CASE_2025_MOTORCYCLE_1_0_CAMREADY.pdf" target="_blank" rel="noopener noreferrer">MOTORCYCLE 1.0: Automating Bimanual Cable Routing Around Fixtures on the NIST Task Board</a>
-      </p>
-      <p class="authors">Osher Azulay*, <span class="me">Kavish Kondap*</span>, Jaimyn Drake*,
-        Shuangyu Xie, Hui Li, Sachin Chitta, Ken Goldberg</p>
-      <p class="venue">CASE 2025 <span class="sep">&middot;</span> <span class="oral">oral</span>
-        <span class="sep">&middot;</span> ICRA Workshop 2025</p>
-      <p class="blurb">A bimanual YuMi system reaching 84% cable routing success on NIST Task Board 4,
-        combining learned perception, collision-avoidant planning, and slack management.</p>
+      <div class="entry-media">
+        <img src="assets/motorcycle.jpg" alt="Four-panel overview of the bimanual cable routing system" loading="lazy" width="480">
+      </div>
+      <div class="entry-body">
+        <p class="entry-title">
+          <a href="https://autolab.berkeley.edu/assets/publications/media/CASE_2025_MOTORCYCLE_1_0_CAMREADY.pdf" target="_blank" rel="noopener noreferrer">MOTORCYCLE 1.0: Automating Bimanual Cable Routing Around Fixtures on the NIST Task Board</a>
+        </p>
+        <p class="authors">Osher Azulay*, <span class="me">Kavish Kondap*</span>, Jaimyn Drake*,
+          Shuangyu Xie, Hui Li, Sachin Chitta, Ken Goldberg</p>
+        <p class="venue">CASE 2025 <span class="sep">&middot;</span> <span class="oral">oral</span>
+          <span class="sep">&middot;</span> ICRA Workshop 2025</p>
+        <p class="blurb">A bimanual YuMi system reaching 84% cable routing success on NIST Task Board 4,
+          combining learned perception, collision-avoidant planning, and slack management.</p>
+    
+      </div>
     </div>
 
     <div class="entry">
-      <p class="entry-title">
-        <a href="https://bloxnet.org/" target="_blank" rel="noopener noreferrer">Blox-Net: Generative Design-for-Robot-Assembly Using VLM Supervision, Physics Simulation, and a Robot with Reset</a>
-      </p>
-      <p class="authors">Andrew Goldberg, <span class="me">Kavish Kondap</span>, Tianshuang Qiu,
-        Zehan Ma, Letian Fu, Justin Kerr, Huang Huang, Kaiyuan Chen, Kuan Fang, Ken Goldberg</p>
-      <p class="venue">ICRA 2025 <span class="sep">&middot;</span> <span class="oral">oral</span>
-        <span class="sep">&middot;</span> CoRL Workshop 2024 <span class="sep">&middot;</span>
-        <a class="award" href="https://roboticart.org/icra2025/" target="_blank" rel="noopener noreferrer">Arts in Robotics Undergraduate Student Research Award</a></p>
-      <p class="blurb">An LLM-driven system that generates 3D assembly designs from text and available
-        parts, reaching 99.2% placement success with a perturbation-based reset pipeline that improved
-        success rates by 353%.</p>
+      <div class="entry-media">
+        <video src="assets/blox-net.mp4" poster="assets/blox-net.jpg" autoplay loop muted
+               playsinline preload="metadata" disablepictureinpicture
+               controlslist="nodownload nofullscreen noremoteplayback" aria-label="Robot assembling a giraffe from blocks"></video>
+      </div>
+      <div class="entry-body">
+        <p class="entry-title">
+          <a href="https://bloxnet.org/" target="_blank" rel="noopener noreferrer">Blox-Net: Generative Design-for-Robot-Assembly Using VLM Supervision, Physics Simulation, and a Robot with Reset</a>
+        </p>
+        <p class="authors">Andrew Goldberg, <span class="me">Kavish Kondap</span>, Tianshuang Qiu,
+          Zehan Ma, Letian Fu, Justin Kerr, Huang Huang, Kaiyuan Chen, Kuan Fang, Ken Goldberg</p>
+        <p class="venue">ICRA 2025 <span class="sep">&middot;</span> <span class="oral">oral</span>
+          <span class="sep">&middot;</span> CoRL Workshop 2024 <span class="sep">&middot;</span>
+          <a class="award" href="https://roboticart.org/icra2025/" target="_blank" rel="noopener noreferrer">Arts in Robotics Undergraduate Student Research Award</a></p>
+        <p class="blurb">An LLM-driven system that generates 3D assembly designs from text and available
+          parts, reaching 99.2% placement success with a perturbation-based reset pipeline that improved
+          success rates by 353%.</p>
+    
+      </div>
     </div>
 
     <div id="older-papers" hidden>
-      <div class="entry">
-        <p class="entry-title">
-          <a href="https://arc.aiaa.org/doi/10.2514/6.2024-1803" target="_blank" rel="noopener noreferrer">Static Task Scheduling for Parallel Execution of Large-Scale Multidisciplinary Design Optimization Models</a>
-        </p>
-        <p class="authors">Mark Sperry, <span class="me">Kavish Kondap</span>, John T. Hwang</p>
-        <p class="venue">AIAA SciTech Forum 2024</p>
+      <div class="entry entry--nomedia">
+        <div class="entry-body">
+          <p class="entry-title">
+            <a href="https://arc.aiaa.org/doi/10.2514/6.2024-1803" target="_blank" rel="noopener noreferrer">Static Task Scheduling for Parallel Execution of Large-Scale Multidisciplinary Design Optimization Models</a>
+          </p>
+          <p class="authors">Mark Sperry, <span class="me">Kavish Kondap</span>, John T. Hwang</p>
+          <p class="venue">AIAA SciTech Forum 2024</p>
+      
+        </div>
       </div>
 
-      <div class="entry">
-        <p class="entry-title">
-          <a href="https://arc.aiaa.org/doi/10.2514/6.2023-3721" target="_blank" rel="noopener noreferrer">Automatic Adjoint Sensitivity Analysis of Models for Large-Scale Multidisciplinary Design Optimization</a>
-        </p>
-        <p class="authors">Mark Sperry, <span class="me">Kavish Kondap</span>, John T. Hwang</p>
-        <p class="venue">AIAA AVIATION Forum 2023</p>
+      <div class="entry entry--nomedia">
+        <div class="entry-body">
+          <p class="entry-title">
+            <a href="https://arc.aiaa.org/doi/10.2514/6.2023-3721" target="_blank" rel="noopener noreferrer">Automatic Adjoint Sensitivity Analysis of Models for Large-Scale Multidisciplinary Design Optimization</a>
+          </p>
+          <p class="authors">Mark Sperry, <span class="me">Kavish Kondap</span>, John T. Hwang</p>
+          <p class="venue">AIAA AVIATION Forum 2023</p>
+      
+        </div>
       </div>
     </div>
 
@@ -368,11 +430,17 @@
     <h2>Projects</h2>
 
     <div class="entry">
-      <p class="entry-title"><a href="https://youtu.be/-liOyvuZ8IU" target="_blank" rel="noopener noreferrer">SplatMaps</a></p>
-      <p class="venue">NerfStudio <span class="sep">&middot;</span> AWS <span class="sep">&middot;</span>
-        WebXR <span class="sep">&middot;</span> Oculus <span class="sep">&middot;</span> Oct 2025</p>
-      <p class="blurb">A web platform for sharing and viewing 3D Gaussian Splat scenes generated from
-        user-uploaded videos, with real-time navigation on desktop and Oculus via WebXR.</p>
+      <div class="entry-media">
+        <img src="assets/splatmaps.jpg" alt="3D Gaussian Splat scene of a graffiti-covered wall" loading="lazy" width="480">
+      </div>
+      <div class="entry-body">
+        <p class="entry-title"><a href="https://youtu.be/-liOyvuZ8IU" target="_blank" rel="noopener noreferrer">SplatMaps</a></p>
+        <p class="venue">NerfStudio <span class="sep">&middot;</span> AWS <span class="sep">&middot;</span>
+          WebXR <span class="sep">&middot;</span> Oculus <span class="sep">&middot;</span> Oct 2025</p>
+        <p class="blurb">A web platform for sharing and viewing 3D Gaussian Splat scenes generated from
+          user-uploaded videos, with real-time navigation on desktop and Oculus via WebXR.</p>
+    
+      </div>
     </div>
   </section>
 
@@ -391,6 +459,14 @@
       window.location.href = "mailto:" + atob(a.dataset.e);
     });
   });
+
+  // Respect a reduced-motion preference: hold the poster frame instead of looping.
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.querySelectorAll("video[autoplay]").forEach(function (v) {
+      v.removeAttribute("autoplay");
+      v.pause();
+    });
+  }
 
   // Older papers toggle.
   (function () {
