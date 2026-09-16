@@ -17,9 +17,11 @@ Static single page: `index.html` (all CSS inline), assets in `assets/`.
 
 - **No CV / resume.** It carries a phone number and home-adjacent details; keep it
   off the public site.
-- **No plaintext email.** The address never appears in the page source — it is
-  base64 in a `data-e` attribute on `a.js-email` and assembled by JS on click.
-  Don't replace those with a plain `mailto:` link.
+- **No plaintext email.** The address never appears in the page source, and is
+  never rendered as visible text. It is base64 in a `data-e` attribute on
+  `a.js-email`; JS sets the `mailto:` href at runtime and copies the address on
+  click (flashing "copied", since a mailto does nothing without a mail client).
+  Don't replace this with a plain `mailto:` link or print the address in the page.
 - Commit with the GitHub noreply author address, not a personal one:
   `git config user.email 65979777+kavishkondap@users.noreply.github.com`
 
@@ -38,7 +40,11 @@ Static single page: `index.html` (all CSS inline), assets in `assets/`.
   Every asset is authored at exactly **480x270** so nothing is cropped at render
   time; do the cropping when generating the asset, not in CSS. Videos are muted,
   looping, `playsinline`, carry a matching `.jpg` poster, and pause when the
-  viewer prefers reduced motion.
+  viewer prefers reduced motion. An entry with no media gets `entry--nomedia`,
+  which keeps its text on the same left edge as the rest.
+- **The two AIAA papers intentionally have no media.** Those PDFs are paywalled,
+  and the lab site only has figures from other projects. Don't fill the gap with
+  a stand-in image that isn't from the paper.
 
 ## After changing anything in assets/
 
