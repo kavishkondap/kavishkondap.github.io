@@ -4,65 +4,63 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kavish Kondap</title>
-<meta name="description" content="Kavish Kondap — EECS at UC Berkeley. Robot learning, manipulation, and efficient models.">
+<meta name="description" content="Kavish Kondap, undergraduate at UC Berkeley studying EECS. Robot learning, vision, and time series.">
 
 <meta property="og:title" content="Kavish Kondap">
-<meta property="og:description" content="EECS at UC Berkeley. Robot learning, manipulation, and efficient models.">
+<meta property="og:description" content="Undergraduate at UC Berkeley studying EECS. Robot learning, vision, and time series.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kavishkondap.github.io/">
+<meta property="og:image" content="https://kavishkondap.github.io/assets/portrait.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👋</text></svg>">
 
 <style>
   :root {
-    --bg:        #fdfdfc;
-    --text:      #1c1c1a;
-    --muted:     #6e6e68;
-    --faint:     #9a9a93;
-    --rule:      #e6e5e0;
-    --link:      #1c1c1a;
-    --accent:    #9a5b2e;
-    --max:       660px;
+    --bg:     #fdfdfc;
+    --text:   #1b1b19;
+    --muted:  #63635d;
+    --faint:  #94948c;
+    --rule:   #e5e4df;
+    --accent: #8a4f24;
+    --serif:  "Source Serif 4", Georgia, "Times New Roman", serif;
+    --mono:   "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --max:    668px;
   }
 
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg:    #14140f;
-      --text:  #e8e7e0;
-      --muted: #9d9c93;
-      --faint: #76756d;
-      --rule:  #2c2c26;
-      --link:  #e8e7e0;
-      --accent:#d0a273;
+      --bg:     #14140f;
+      --text:   #eae9e1;
+      --muted:  #a3a299;
+      --faint:  #7a7971;
+      --rule:   #2d2d26;
+      --accent: #d9a86f;
     }
   }
   :root[data-theme="dark"] {
-    --bg:    #14140f;
-    --text:  #e8e7e0;
-    --muted: #9d9c93;
-    --faint: #76756d;
-    --rule:  #2c2c26;
-    --link:  #e8e7e0;
-    --accent:#d0a273;
+    --bg:     #14140f;
+    --text:   #eae9e1;
+    --muted:  #a3a299;
+    --faint:  #7a7971;
+    --rule:   #2d2d26;
+    --accent: #d9a86f;
   }
 
   * { box-sizing: border-box; }
-
   html { -webkit-text-size-adjust: 100%; }
 
   body {
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 15.5px;
-    line-height: 1.65;
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.62;
     -webkit-font-smoothing: antialiased;
-    font-feature-settings: "kern" 1, "liga" 1;
   }
 
   .wrap {
@@ -72,15 +70,12 @@
   }
 
   a {
-    color: var(--link);
+    color: var(--link, var(--text));
     text-decoration: none;
     border-bottom: 1px solid var(--rule);
     transition: border-color .15s ease, color .15s ease;
   }
-  a:hover {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-  }
+  a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
   /* ---------- header ---------- */
 
@@ -88,56 +83,51 @@
     display: flex;
     align-items: flex-start;
     gap: 26px;
-    margin-bottom: 34px;
+    margin-bottom: 32px;
   }
 
   .portrait {
-    width: 104px;
-    height: 104px;
-    flex: 0 0 104px;
+    width: 112px;
+    height: 112px;
+    flex: 0 0 112px;
     border-radius: 3px;
     object-fit: cover;
     background: var(--rule);
     display: block;
   }
 
-  /* fallback shown when assets/portrait.jpg is missing */
   .portrait-fallback {
-    width: 104px;
-    height: 104px;
-    flex: 0 0 104px;
+    width: 112px;
+    height: 112px;
+    flex: 0 0 112px;
     border-radius: 3px;
     background: var(--rule);
     color: var(--faint);
     display: none;
     align-items: center;
     justify-content: center;
-    font-size: 26px;
-    font-weight: 500;
-    letter-spacing: .04em;
+    font-family: var(--mono);
+    font-size: 24px;
     user-select: none;
   }
 
-  h1 {
-    font-size: 27px;
-    font-weight: 600;
-    letter-spacing: -0.017em;
-    margin: -4px 0 4px;
-    line-height: 1.2;
-  }
+  .head-text { padding-top: 6px; }
 
-  .tagline {
-    color: var(--muted);
-    margin: 0 0 12px;
-    font-size: 15px;
+  h1 {
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -0.012em;
+    margin: 0 0 10px;
+    line-height: 1.15;
   }
 
   .contact {
-    font-size: 14px;
+    font-family: var(--mono);
+    font-size: 12.5px;
     color: var(--muted);
     display: flex;
     flex-wrap: wrap;
-    gap: 0 8px;
+    gap: 2px 7px;
   }
   .contact a { color: var(--muted); border-bottom-color: transparent; }
   .contact a:hover { color: var(--accent); border-bottom-color: var(--accent); }
@@ -150,114 +140,132 @@
 
   /* ---------- sections ---------- */
 
-  section { margin-top: 52px; }
+  section { margin-top: 50px; }
 
   h2 {
+    font-family: var(--mono);
     font-size: 11.5px;
-    font-weight: 600;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.13em;
+    letter-spacing: 0.11em;
     color: var(--faint);
-    margin: 0 0 22px;
+    margin: 0 0 20px;
     padding-bottom: 9px;
     border-bottom: 1px solid var(--rule);
   }
 
-  /* ---------- entries (papers / projects) ---------- */
+  .note {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--faint);
+    margin: -8px 0 22px;
+  }
 
-  .entry { margin-bottom: 26px; }
+  /* ---------- papers / projects ---------- */
+
+  .entry { margin-bottom: 25px; }
   .entry:last-child { margin-bottom: 0; }
 
   .entry-title {
-    font-weight: 500;
-    margin: 0 0 2px;
-    letter-spacing: -0.005em;
+    font-weight: 600;
+    margin: 0 0 1px;
+    letter-spacing: -0.004em;
+    line-height: 1.35;
   }
 
   .authors {
     color: var(--muted);
-    font-size: 14px;
-    margin: 0 0 2px;
+    font-size: 15.5px;
+    margin: 0 0 1px;
+    line-height: 1.5;
   }
-  .authors .me { color: var(--text); font-weight: 500; }
+  .authors .me { color: var(--text); font-weight: 600; }
 
   .venue {
-    font-size: 14px;
+    font-family: var(--mono);
+    font-size: 12.5px;
     color: var(--muted);
-    margin: 0 0 3px;
+    margin: 0 0 5px;
   }
-  .venue em { font-style: normal; color: var(--text); }
-  .award { color: var(--accent); }
+  .venue .sep { color: var(--faint); }
+
+  .oral {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .award { color: var(--accent); font-weight: 500; }
+  .venue a.award { border-bottom-color: var(--rule); }
 
   .blurb {
-    font-size: 14px;
+    font-size: 15.5px;
     color: var(--muted);
     margin: 0;
+    line-height: 1.55;
   }
 
-  .links {
-    font-size: 13.5px;
-    margin-top: 3px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0 7px;
+  /* ---------- older papers toggle ---------- */
+
+  .toggle-line {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--faint);
+    margin-top: 26px;
   }
-  .links a { color: var(--muted); border-bottom-color: var(--rule); }
-  .links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
-  .links .sep { color: var(--faint); }
+  .toggle-line a {
+    color: var(--muted);
+    border-bottom-color: transparent;
+    cursor: pointer;
+  }
+  .toggle-line a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  #older-papers { margin-top: 25px; }
+  #older-papers[hidden] { display: none; }
 
   /* ---------- experience ---------- */
 
-  .job { margin-bottom: 26px; }
-  .job:last-child { margin-bottom: 0; }
-
-  .job-head {
+  .job {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 14px;
-    margin-bottom: 3px;
+    gap: 16px;
+    margin-bottom: 13px;
   }
+  .job:last-child { margin-bottom: 0; }
 
-  .job-title { font-weight: 500; letter-spacing: -0.005em; }
-  .job-title .role { font-weight: 400; color: var(--muted); }
+  .job-title { letter-spacing: -0.004em; }
+  .job-title .role { color: var(--muted); }
 
   .date {
+    font-family: var(--mono);
+    font-size: 12.5px;
     color: var(--faint);
-    font-size: 13px;
     white-space: nowrap;
-    font-variant-numeric: tabular-nums;
   }
-
-  .job ul {
-    margin: 6px 0 0;
-    padding-left: 17px;
-    color: var(--muted);
-    font-size: 14px;
-  }
-  .job li { margin-bottom: 3px; }
-  .job li::marker { color: var(--faint); }
 
   /* ---------- footer ---------- */
 
   footer {
-    margin-top: 64px;
+    margin-top: 62px;
     padding-top: 18px;
     border-top: 1px solid var(--rule);
-    font-size: 13px;
+    font-family: var(--mono);
+    font-size: 12px;
     color: var(--faint);
   }
 
   /* ---------- responsive ---------- */
 
   @media (max-width: 560px) {
-    .wrap { padding-top: 56px; padding-bottom: 80px; }
+    body { font-size: 16.5px; }
+    .wrap { padding-top: 54px; padding-bottom: 80px; }
     header { gap: 18px; }
-    .portrait, .portrait-fallback { width: 76px; height: 76px; flex-basis: 76px; }
-    .portrait-fallback { font-size: 19px; }
-    h1 { font-size: 23px; }
-    .job-head { flex-direction: column; gap: 0; }
-    section { margin-top: 44px; }
+    .portrait, .portrait-fallback { width: 82px; height: 82px; flex-basis: 82px; }
+    .portrait-fallback { font-size: 18px; }
+    .head-text { padding-top: 2px; }
+    h1 { font-size: 25px; }
+    section { margin-top: 42px; }
+    .job { flex-direction: column; gap: 1px; margin-bottom: 16px; }
   }
 </style>
 </head>
@@ -270,92 +278,95 @@
          onerror="this.style.display='none';document.getElementById('pf').style.display='flex';">
     <div class="portrait-fallback" id="pf" aria-hidden="true">KK</div>
 
-    <div>
+    <div class="head-text">
       <h1>Kavish Kondap</h1>
-      <p class="tagline">EECS at UC Berkeley &middot; robot learning &amp; efficient models</p>
       <div class="contact">
         <a class="js-email" href="#" data-e="a2F2aXNoa29uZGFwQGdtYWlsLmNvbQ==">Email</a> <span class="sep">/</span>
-        <a href="https://github.com/kavishkondap">GitHub</a> <span class="sep">/</span>
-        <a href="https://www.linkedin.com/in/kavish-kondap">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=qqnuSkkAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Scholar</a> <span class="sep">/</span>
+        <a href="https://github.com/kavishkondap" target="_blank" rel="noopener noreferrer">GitHub</a> <span class="sep">/</span>
+        <a href="https://x.com/kavish_kondap" target="_blank" rel="noopener noreferrer">X</a> <span class="sep">/</span>
+        <a href="https://www.linkedin.com/in/kavish-kondap" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
     </div>
   </header>
 
   <div class="bio">
-    <p>I&rsquo;m an undergraduate at UC Berkeley studying Electrical Engineering and Computer
-    Science. Since 2024 I&rsquo;ve been a researcher in
-    <a href="https://autolab.berkeley.edu/">AUTOLab</a> at Berkeley AI Research, advised by
-    Prof. <a href="https://goldberg.berkeley.edu/">Ken Goldberg</a>.</p>
-
-    <p>My research is on robot learning &mdash; how to get more out of the demonstration data we
-    collect, and how to build systems that hold up outside the lab. Lately that&rsquo;s meant reward
-    models for curating imitation learning data, semantic querying over heterogeneous robot
-    datasets, and bimanual manipulation. I&rsquo;ve also spent time making large models cheaper to
-    run, at Amazon Lab126 and Jane Street.</p>
-
-    <p>I&rsquo;m always happy to talk about research &mdash; feel free to
-    <a class="js-email" href="#" data-e="a2F2aXNoa29uZGFwQGdtYWlsLmNvbQ==">send me an email</a>.</p>
+    <p>I am an undergraduate student at UC Berkeley studying EECS (Electrical Engineering &amp;
+    Computer Science). I like thinking about problems in robot learning, vision, and time series.
+    Since 2024 I&rsquo;ve been a researcher in
+    <a href="https://autolab.berkeley.edu/" target="_blank" rel="noopener noreferrer">AUTOLab</a>,
+    advised by Prof.
+    <a href="https://goldberg.berkeley.edu/" target="_blank" rel="noopener noreferrer">Ken Goldberg</a>.
+    Previously I interned at Amazon Lab126 as an ML Intern and at Jane Street as an ML Research
+    Intern. I have received the Barry Goldwater Scholarship, Timothy B. Campbell Innovation Award,
+    and the Regents&rsquo; and Chancellor&rsquo;s Scholarship. I am originally from San Diego, CA.</p>
   </div>
 
   <!-- ============ PAPERS ============ -->
   <section id="papers">
     <h2>Papers</h2>
+    <p class="note">* denotes equal contribution.</p>
 
     <div class="entry">
       <p class="entry-title">
-        <a href="https://uynitsuj.github.io/warp-rm/">WARP-RM: A Warp-Augmented Relative Progress Reward Model for Data Curation</a>
+        <a href="https://uynitsuj.github.io/warp-rm/" target="_blank" rel="noopener noreferrer">WARP-RM: A Warp-Augmented Relative Progress Reward Model for Data Curation</a>
       </p>
-      <p class="authors">J. Yu*, A. Goldberg*, <span class="me">K. Kondap</span>*, K. El-Refai*, E. Ransing,
-        Q. Chen, M. Schwager, F. Shentu, P. Wu, K. Goldberg</p>
-      <p class="venue"><em>CoRL 2026</em></p>
+      <p class="authors">Justin Yu*, Andrew Goldberg*, <span class="me">Kavish Kondap</span>*,
+        Karim El-Refai*, Ethan Ransing, Qianzhong Chen, Mac Schwager, Fred Shentu, Philipp Wu,
+        Ken Goldberg</p>
+      <p class="venue">CoRL 2026</p>
       <p class="blurb">A self-supervised reward model that curates behavior cloning data with no human
-        annotations &mdash; filtering suboptimal frames takes t-shirt folding from 2/20 to 19/20.</p>
-      <div class="links"><a href="https://uynitsuj.github.io/warp-rm/">website</a></div>
+        annotations. Filtering suboptimal frames takes t-shirt folding from 2/20 to 19/20.</p>
     </div>
 
     <div class="entry">
       <p class="entry-title">
-        <a href="https://drive.google.com/file/d/1S6wYjyzNC5TXl0CjUd4c1HVJdLXfuWim/view">RoboSQ: Semantic Data Queries for Semi-structured Heterogeneous Robot Datasets</a>
+        <a href="https://drive.google.com/file/d/1S6wYjyzNC5TXl0CjUd4c1HVJdLXfuWim/view" target="_blank" rel="noopener noreferrer">RoboSQ: Semantic Data Queries for Semi-structured Heterogeneous Robot Datasets</a>
       </p>
-      <p class="authors">K. Chen, S. Xie, K. Hari, A. Goldberg, <span class="me">K. Kondap</span>, K. Goldberg</p>
-      <p class="venue"><em>ICRA 2026</em></p>
+      <p class="authors">Kaiyuan Chen, Shuangyu Xie, Kush Hari, Andrew Goldberg,
+        <span class="me">Kavish Kondap</span>, Ken Goldberg</p>
+      <p class="venue">ICRA 2026 <span class="sep">&middot;</span> <span class="oral">oral</span></p>
       <p class="blurb">A VLM-based pipeline that finds and removes sub-optimal teleoperated
         demonstrations, and measures what that does to ACT and &pi;<sub>0.5</sub> policies.</p>
-      <div class="links"><a href="https://drive.google.com/file/d/1S6wYjyzNC5TXl0CjUd4c1HVJdLXfuWim/view">paper</a></div>
     </div>
 
     <div class="entry">
       <p class="entry-title">
-        <a href="https://autolab.berkeley.edu/assets/publications/media/CASE_2025_MOTORCYCLE_1_0_CAMREADY.pdf">MOTORCYCLE 1.0: Automating Bimanual Cable Routing Around Fixtures on the NIST Task Board</a>
+        <a href="https://autolab.berkeley.edu/assets/publications/media/CASE_2025_MOTORCYCLE_1_0_CAMREADY.pdf" target="_blank" rel="noopener noreferrer">MOTORCYCLE 1.0: Automating Bimanual Cable Routing Around Fixtures on the NIST Task Board</a>
       </p>
-      <p class="authors">O. Azulay*, <span class="me">K. Kondap</span>*, J. Drake*, S. Xie, H. Li, S. Chitta, K. Goldberg</p>
-      <p class="venue"><em>CASE 2025</em> (oral) &middot; ICRA Workshop 2025</p>
+      <p class="authors">Osher Azulay*, <span class="me">Kavish Kondap</span>*, Jaimyn Drake*,
+        Shuangyu Xie, Hui Li, Sachin Chitta, Ken Goldberg</p>
+      <p class="venue">CASE 2025 <span class="sep">&middot;</span> <span class="oral">oral</span>
+        <span class="sep">&middot;</span> ICRA Workshop 2025</p>
       <p class="blurb">A bimanual YuMi system reaching 84% cable routing success on NIST Task Board 4,
         combining learned perception, collision-avoidant planning, and slack management.</p>
-      <div class="links"><a href="https://autolab.berkeley.edu/assets/publications/media/CASE_2025_MOTORCYCLE_1_0_CAMREADY.pdf">paper</a></div>
     </div>
 
     <div class="entry">
       <p class="entry-title">
-        <a href="https://bloxnet.org/">Blox-Net: Generative Design-for-Robot-Assembly Using VLM Supervision, Physics Simulation, and a Robot with Reset</a>
+        <a href="https://bloxnet.org/" target="_blank" rel="noopener noreferrer">Blox-Net: Generative Design-for-Robot-Assembly Using VLM Supervision, Physics Simulation, and a Robot with Reset</a>
       </p>
-      <p class="authors">A. Goldberg, <span class="me">K. Kondap</span>, T. Qiu, Z. Ma, L. Fu, J. Kerr, H. Huang,
-        K. Chen, K. Fang, K. Goldberg</p>
-      <p class="venue"><em>ICRA 2025</em> (oral) &middot; CoRL Workshop 2024 &middot; ICRA Workshop 2025
-        &mdash; <span class="award"><a href="https://roboticart.org/icra2025/">Arts in Robotics Undergraduate Student Research Award</a></span></p>
+      <p class="authors">Andrew Goldberg, <span class="me">Kavish Kondap</span>, Tianshuang Qiu,
+        Zehan Ma, Letian Fu, Justin Kerr, Huang Huang, Kaiyuan Chen, Kuan Fang, Ken Goldberg</p>
+      <p class="venue">ICRA 2025 <span class="sep">&middot;</span> <span class="oral">oral</span>
+        <span class="sep">&middot;</span> CoRL Workshop 2024 <span class="sep">&middot;</span>
+        <a class="award" href="https://roboticart.org/icra2025/" target="_blank" rel="noopener noreferrer">Arts in Robotics Undergraduate Student Research Award</a></p>
       <p class="blurb">An LLM-driven system that generates 3D assembly designs from text and available
         parts, reaching 99.2% placement success with a perturbation-based reset pipeline that improved
         success rates by 353%.</p>
-      <div class="links"><a href="https://bloxnet.org/">website</a></div>
     </div>
 
-    <div class="entry">
-      <p class="entry-title">Static Task Scheduling for Parallel Execution of Large-Scale Multidisciplinary Design Optimization Models</p>
-      <p class="authors">M. Sperry, <span class="me">K. Kondap</span>, J. Hwang</p>
-      <p class="venue"><em>AIAA SciTech Forum 2024</em></p>
+    <div id="older-papers" hidden>
+      <div class="entry">
+        <p class="entry-title">
+          <a href="https://arc.aiaa.org/doi/10.2514/6.2024-1803" target="_blank" rel="noopener noreferrer">Static Task Scheduling for Parallel Execution of Large-Scale Multidisciplinary Design Optimization Models</a>
+        </p>
+        <p class="authors">Mark Sperry, <span class="me">Kavish Kondap</span>, John Hwang</p>
+        <p class="venue">AIAA SciTech Forum 2024</p>
+      </div>
     </div>
 
-    <p class="blurb" style="margin-top:22px">* denotes equal contribution.</p>
+    <p class="toggle-line">[ <a id="older-toggle" href="#" role="button" aria-expanded="false" aria-controls="older-papers">show older papers</a> ]</p>
   </section>
 
   <!-- ============ EXPERIENCE ============ -->
@@ -363,39 +374,13 @@
     <h2>Experience</h2>
 
     <div class="job">
-      <div class="job-head">
-        <div class="job-title">Jane Street <span class="role">&mdash; Machine Learning Researcher Intern</span></div>
-        <div class="date">May &ndash; Aug 2026</div>
-      </div>
-      <ul>
-        <li>Trained autoregressive diffusion and flow-matching models for market data world modeling.</li>
-        <li>Adapted Mixture-of-Experts and Mixture-of-LoRA architectures so models could specialize per symbol when predicting returns.</li>
-        <li>Competed and placed highly in trading and modeling challenges against bots and other interns; received a return offer.</li>
-      </ul>
+      <div class="job-title">Jane Street <span class="role">Machine Learning Research Intern</span></div>
+      <div class="date">May 2026 &ndash; Aug 2026</div>
     </div>
 
     <div class="job">
-      <div class="job-head">
-        <div class="job-title">AUTOLab, Berkeley AI Research <span class="role">&mdash; Researcher</span></div>
-        <div class="date">Jul 2024 &ndash; Present</div>
-      </div>
-      <ul>
-        <li>Advised by Prof. Ken Goldberg; first or co-first author on work at CoRL, CASE, and ICRA.</li>
-        <li>Reward modeling and data curation for imitation learning, bimanual manipulation, and VLM-supervised robot assembly.</li>
-      </ul>
-    </div>
-
-    <div class="job">
-      <div class="job-head">
-        <div class="job-title">Amazon Lab126 <span class="role">&mdash; Machine Learning Intern</span></div>
-        <div class="date">May &ndash; Aug 2025</div>
-      </div>
-      <ul>
-        <li>Compressed a Mixture-of-Experts language model by 4&times; with under 5% benchmark drop using quantization, SVD, expert merging, and layer pruning.</li>
-        <li>Ran full-model and LoRA finetuning with Distributed Data Parallel on 600k conversations for performance recovery.</li>
-        <li>Deployed Amazon&rsquo;s first on-device MoE model; developed an inference-time token-shuffling approach reducing I/O overhead from linear to constant in input length.</li>
-        <li>First-author publication at the 2025 Amazon Machine Learning Conference.</li>
-      </ul>
+      <div class="job-title">Amazon Lab126 <span class="role">Machine Learning Intern</span></div>
+      <div class="date">May 2025 &ndash; Aug 2025</div>
     </div>
   </section>
 
@@ -404,16 +389,16 @@
     <h2>Projects</h2>
 
     <div class="entry">
-      <p class="entry-title"><a href="https://youtu.be/-liOyvuZ8IU">SplatMaps</a></p>
-      <p class="venue">NerfStudio &middot; AWS &middot; WebXR &middot; Oculus &mdash; Oct 2025</p>
+      <p class="entry-title"><a href="https://youtu.be/-liOyvuZ8IU" target="_blank" rel="noopener noreferrer">SplatMaps</a></p>
+      <p class="venue">NerfStudio <span class="sep">&middot;</span> AWS <span class="sep">&middot;</span>
+        WebXR <span class="sep">&middot;</span> Oculus <span class="sep">&middot;</span> Oct 2025</p>
       <p class="blurb">A web platform for sharing and viewing 3D Gaussian Splat scenes generated from
         user-uploaded videos, with real-time navigation on desktop and Oculus via WebXR.</p>
-      <div class="links"><a href="https://youtu.be/-liOyvuZ8IU">demo</a></div>
     </div>
   </section>
 
   <footer>
-    Berkeley, CA &middot; last updated September 2026
+    Berkeley, CA <span class="sep">&middot;</span> last updated September 2026
   </footer>
 
 </div>
@@ -427,6 +412,26 @@
       window.location.href = "mailto:" + atob(a.dataset.e);
     });
   });
+
+  // Older papers toggle.
+  (function () {
+    var list = document.getElementById("older-papers");
+    var btn = document.getElementById("older-toggle");
+    if (!list || !btn) return;
+    btn.addEventListener("click", function (ev) {
+      ev.preventDefault();
+      var hidden = list.hasAttribute("hidden");
+      if (hidden) {
+        list.removeAttribute("hidden");
+        btn.textContent = "hide older papers";
+        btn.setAttribute("aria-expanded", "true");
+      } else {
+        list.setAttribute("hidden", "");
+        btn.textContent = "show older papers";
+        btn.setAttribute("aria-expanded", "false");
+      }
+    });
+  })();
 </script>
 </body>
 </html>

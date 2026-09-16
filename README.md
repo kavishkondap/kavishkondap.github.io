@@ -23,6 +23,18 @@ Static single page: `index.html` (all CSS inline), assets in `assets/`.
 - Commit with the GitHub noreply author address, not a personal one:
   `git config user.email 65979777+kavishkondap@users.noreply.github.com`
 
+## Conventions
+
+- **No em dashes** anywhere in the copy.
+- **Every external link** gets `target="_blank" rel="noopener noreferrer"`.
+- **Paper entries** link from the title only, with no separate link row underneath.
+  Author lists use full first and last names, with `<span class="me">` on mine.
+- **Fonts** are Source Serif 4 (body) and IBM Plex Mono (labels, dates, venues),
+  set as `--serif` and `--mono` on `:root`. To swap, change those two variables
+  and the Google Fonts `<link>`.
+- **Older papers** live in `#older-papers`, hidden behind the toggle at the bottom
+  of the Papers section.
+
 ## Preview
 
     python3 -m http.server 8000
