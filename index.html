@@ -81,9 +81,9 @@
 
   header {
     display: flex;
-    align-items: flex-start;
-    gap: 26px;
-    margin-bottom: 32px;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 34px;
   }
 
   .portrait {
@@ -111,23 +111,24 @@
     user-select: none;
   }
 
-  .head-text { padding-top: 6px; }
+  .head-text { min-width: 0; }
 
   h1 {
-    font-size: 30px;
+    font-size: 31px;
     font-weight: 600;
     letter-spacing: -0.012em;
-    margin: 0 0 10px;
-    line-height: 1.15;
+    margin: 0 0 9px;
+    line-height: 1.1;
   }
 
   .contact {
     font-family: var(--mono);
     font-size: 12.5px;
+    line-height: 1.5;
     color: var(--muted);
     display: flex;
     flex-wrap: wrap;
-    gap: 2px 7px;
+    gap: 3px 7px;
   }
   .contact a { color: var(--muted); border-bottom-color: transparent; }
   .contact a:hover { color: var(--accent); border-bottom-color: var(--accent); }
@@ -222,27 +223,6 @@
   #older-papers { margin-top: 25px; }
   #older-papers[hidden] { display: none; }
 
-  /* ---------- experience ---------- */
-
-  .job {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 16px;
-    margin-bottom: 13px;
-  }
-  .job:last-child { margin-bottom: 0; }
-
-  .job-title { letter-spacing: -0.004em; }
-  .job-title .role { color: var(--muted); }
-
-  .date {
-    font-family: var(--mono);
-    font-size: 12.5px;
-    color: var(--faint);
-    white-space: nowrap;
-  }
-
   /* ---------- footer ---------- */
 
   footer {
@@ -260,12 +240,11 @@
     body { font-size: 16.5px; }
     .wrap { padding-top: 54px; padding-bottom: 80px; }
     header { gap: 18px; }
-    .portrait, .portrait-fallback { width: 82px; height: 82px; flex-basis: 82px; }
+    .portrait, .portrait-fallback { width: 84px; height: 84px; flex-basis: 84px; }
     .portrait-fallback { font-size: 18px; }
-    .head-text { padding-top: 2px; }
-    h1 { font-size: 25px; }
+    h1 { font-size: 25px; margin-bottom: 7px; }
+    .contact { font-size: 12px; gap: 3px 6px; }
     section { margin-top: 42px; }
-    .job { flex-direction: column; gap: 1px; margin-bottom: 16px; }
   }
 </style>
 </head>
@@ -291,15 +270,22 @@
   </header>
 
   <div class="bio">
-    <p>I am an undergraduate student at UC Berkeley studying EECS (Electrical Engineering &amp;
-    Computer Science). I like thinking about problems in robot learning, vision, and time series.
-    Since 2024 I&rsquo;ve been a researcher in
+    <p>I am an undergraduate at UC Berkeley studying EECS (Electrical Engineering &amp; Computer
+    Science). I like thinking about problems in robot learning, vision, and time series.</p>
+
+    <p>Since 2024 I&rsquo;ve been a researcher in
     <a href="https://autolab.berkeley.edu/" target="_blank" rel="noopener noreferrer">AUTOLab</a>,
     advised by Prof.
     <a href="https://goldberg.berkeley.edu/" target="_blank" rel="noopener noreferrer">Ken Goldberg</a>.
-    Previously I interned at Amazon Lab126 as an ML Intern and at Jane Street as an ML Research
-    Intern. I have received the Barry Goldwater Scholarship, Timothy B. Campbell Innovation Award,
-    and the Regents&rsquo; and Chancellor&rsquo;s Scholarship. I am originally from San Diego, CA.</p>
+    I&rsquo;ve also interned at
+    <a href="https://www.amazon.jobs/en/teams/lab126" target="_blank" rel="noopener noreferrer">Amazon Lab126</a>
+    as an ML Intern and at
+    <a href="https://www.janestreet.com/" target="_blank" rel="noopener noreferrer">Jane Street</a>
+    as an ML Research Intern. Along the way I&rsquo;ve been fortunate to receive the Barry Goldwater
+    Scholarship, the Timothy B. Campbell Innovation Award, and the Regents&rsquo; and
+    Chancellor&rsquo;s Scholarship.</p>
+
+    <p>I am originally from San Diego, CA.</p>
   </div>
 
   <!-- ============ PAPERS ============ -->
@@ -311,7 +297,7 @@
       <p class="entry-title">
         <a href="https://uynitsuj.github.io/warp-rm/" target="_blank" rel="noopener noreferrer">WARP-RM: A Warp-Augmented Relative Progress Reward Model for Data Curation</a>
       </p>
-      <p class="authors">Justin Yu*, Andrew Goldberg*, <span class="me">Kavish Kondap</span>*,
+      <p class="authors">Justin Yu*, Andrew Goldberg*, <span class="me">Kavish Kondap*</span>,
         Karim El-Refai*, Ethan Ransing, Qianzhong Chen, Mac Schwager, Fred Shentu, Philipp Wu,
         Ken Goldberg</p>
       <p class="venue">CoRL 2026</p>
@@ -334,7 +320,7 @@
       <p class="entry-title">
         <a href="https://autolab.berkeley.edu/assets/publications/media/CASE_2025_MOTORCYCLE_1_0_CAMREADY.pdf" target="_blank" rel="noopener noreferrer">MOTORCYCLE 1.0: Automating Bimanual Cable Routing Around Fixtures on the NIST Task Board</a>
       </p>
-      <p class="authors">Osher Azulay*, <span class="me">Kavish Kondap</span>*, Jaimyn Drake*,
+      <p class="authors">Osher Azulay*, <span class="me">Kavish Kondap*</span>, Jaimyn Drake*,
         Shuangyu Xie, Hui Li, Sachin Chitta, Ken Goldberg</p>
       <p class="venue">CASE 2025 <span class="sep">&middot;</span> <span class="oral">oral</span>
         <span class="sep">&middot;</span> ICRA Workshop 2025</p>
@@ -361,27 +347,20 @@
         <p class="entry-title">
           <a href="https://arc.aiaa.org/doi/10.2514/6.2024-1803" target="_blank" rel="noopener noreferrer">Static Task Scheduling for Parallel Execution of Large-Scale Multidisciplinary Design Optimization Models</a>
         </p>
-        <p class="authors">Mark Sperry, <span class="me">Kavish Kondap</span>, John Hwang</p>
+        <p class="authors">Mark Sperry, <span class="me">Kavish Kondap</span>, John T. Hwang</p>
         <p class="venue">AIAA SciTech Forum 2024</p>
+      </div>
+
+      <div class="entry">
+        <p class="entry-title">
+          <a href="https://arc.aiaa.org/doi/10.2514/6.2023-3721" target="_blank" rel="noopener noreferrer">Automatic Adjoint Sensitivity Analysis of Models for Large-Scale Multidisciplinary Design Optimization</a>
+        </p>
+        <p class="authors">Mark Sperry, <span class="me">Kavish Kondap</span>, John T. Hwang</p>
+        <p class="venue">AIAA AVIATION Forum 2023</p>
       </div>
     </div>
 
     <p class="toggle-line">[ <a id="older-toggle" href="#" role="button" aria-expanded="false" aria-controls="older-papers">show older papers</a> ]</p>
-  </section>
-
-  <!-- ============ EXPERIENCE ============ -->
-  <section id="experience">
-    <h2>Experience</h2>
-
-    <div class="job">
-      <div class="job-title">Jane Street <span class="role">Machine Learning Research Intern</span></div>
-      <div class="date">May 2026 &ndash; Aug 2026</div>
-    </div>
-
-    <div class="job">
-      <div class="job-title">Amazon Lab126 <span class="role">Machine Learning Intern</span></div>
-      <div class="date">May 2025 &ndash; Aug 2025</div>
-    </div>
   </section>
 
   <!-- ============ PROJECTS ============ -->
