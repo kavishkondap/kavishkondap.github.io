@@ -19,9 +19,10 @@ Static single page: `index.html` (all CSS inline), assets in `assets/`.
   off the public site.
 - **No plaintext email.** The address never appears in the page source, and is
   never rendered as visible text. It is base64 in a `data-e` attribute on
-  `a.js-email`; JS sets the `mailto:` href at runtime and copies the address on
-  click (flashing "copied", since a mailto does nothing without a mail client).
-  Don't replace this with a plain `mailto:` link or print the address in the page.
+  `.js-email`, and there is no `mailto:` link at all. The control is a
+  `<button>` styled to match the surrounding links; clicking copies the address
+  and flashes "copied". Don't turn it back into a `mailto:` link or print the
+  address in the page.
 - Commit with the GitHub noreply author address, not a personal one:
   `git config user.email 65979777+kavishkondap@users.noreply.github.com`
 
