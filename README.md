@@ -34,11 +34,11 @@ Static single page: `index.html` (all CSS inline), assets in `assets/`.
   and the Google Fonts `<link>`.
 - **Older papers** live in `#older-papers`, hidden behind the toggle at the bottom
   of the Papers section.
-- **Paper media** sits in `.entry-media` at a fixed 240px width, with natural
-  height (no cropping, so mixed aspect ratios are fine). Source assets are 480px
-  wide for retina. Videos are muted/looping with a matching `.jpg` poster, and are
-  paused when the viewer prefers reduced motion. An entry with no media gets
-  `entry--nomedia`, which keeps its text on the same left edge as the others.
+- **Paper media** sits in `.entry-media`, a fixed 240px x 135px (16:9) box.
+  Every asset is authored at exactly **480x270** so nothing is cropped at render
+  time; do the cropping when generating the asset, not in CSS. Videos are muted,
+  looping, `playsinline`, carry a matching `.jpg` poster, and pause when the
+  viewer prefers reduced motion.
 
 ## Preview
 

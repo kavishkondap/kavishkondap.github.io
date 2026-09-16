@@ -173,24 +173,27 @@
   }
   .entry:last-child { margin-bottom: 0; }
 
+  /* Fixed 16:9 box. Every asset is authored at exactly 480x270, so nothing is
+     actually cropped; object-fit is a guard if one is ever swapped out. */
   .entry-media {
     flex: 0 0 240px;
     width: 240px;
+    aspect-ratio: 16 / 9;
+    border-radius: 3px;
+    overflow: hidden;
+    background: var(--rule);
     line-height: 0;
   }
   .entry-media img,
   .entry-media video {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
-    border-radius: 3px;
-    background: var(--rule);
+    object-fit: cover;
   }
 
   .entry-body { flex: 1 1 auto; min-width: 0; }
 
-  /* Entries with no media keep their text on the same left edge as the rest. */
-  .entry--nomedia .entry-body { padding-left: 266px; }
 
   .entry-title {
     font-weight: 600;
@@ -272,7 +275,6 @@
     section { margin-top: 42px; }
     .entry { flex-direction: column; gap: 12px; margin-bottom: 30px; }
     .entry-media { flex: 0 0 auto; width: 100%; max-width: 360px; }
-    .entry--nomedia .entry-body { padding-left: 0; }
   }
 </style>
 </head>
@@ -309,8 +311,9 @@
     <a href="https://www.janestreet.com/" target="_blank" rel="noopener noreferrer">Jane Street</a>
     as an ML Research Intern and at
     <a href="https://www.amazon.jobs/en/teams/lab126" target="_blank" rel="noopener noreferrer">Amazon Lab126</a>
-    as an ML Intern. Along the way I&rsquo;ve been fortunate to receive the Barry Goldwater
-    Scholarship, the Timothy B. Campbell Innovation Award, and the Regents&rsquo; and
+    as an ML Intern. Along the way I&rsquo;ve been fortunate to receive the
+    <a href="https://goldwaterscholarship.gov/" target="_blank" rel="noopener noreferrer">Barry Goldwater Scholarship</a>,
+    the Timothy B. Campbell Innovation Award, and the Regents&rsquo; and
     Chancellor&rsquo;s Scholarship.</p>
 
     <p>I am originally from San Diego, CA.</p>
@@ -337,13 +340,12 @@
         <p class="venue">CoRL 2026</p>
         <p class="blurb">A self-supervised reward model that curates behavior cloning data with no human
           annotations. Filtering suboptimal frames takes t-shirt folding from 2/20 to 19/20.</p>
-    
       </div>
     </div>
 
     <div class="entry">
       <div class="entry-media">
-        <img src="assets/robosq.jpg" alt="RoboSQ pipeline filtering robot trajectories by semantic query" loading="lazy" width="480">
+        <img src="assets/robosq.jpg" alt="RoboSQ pipeline filtering robot trajectories by semantic query" loading="lazy" width="480" height="270">
       </div>
       <div class="entry-body">
         <p class="entry-title">
@@ -354,13 +356,12 @@
         <p class="venue">ICRA 2026 <span class="sep">&middot;</span> <span class="oral">oral</span></p>
         <p class="blurb">A VLM-based pipeline that finds and removes sub-optimal teleoperated
           demonstrations, and measures what that does to ACT and &pi;<sub>0.5</sub> policies.</p>
-    
       </div>
     </div>
 
     <div class="entry">
       <div class="entry-media">
-        <img src="assets/motorcycle.jpg" alt="Four-panel overview of the bimanual cable routing system" loading="lazy" width="480">
+        <img src="assets/motorcycle.jpg" alt="Four-panel overview of the bimanual cable routing system" loading="lazy" width="480" height="270">
       </div>
       <div class="entry-body">
         <p class="entry-title">
@@ -372,7 +373,6 @@
           <span class="sep">&middot;</span> ICRA Workshop 2025</p>
         <p class="blurb">A bimanual YuMi system reaching 84% cable routing success on NIST Task Board 4,
           combining learned perception, collision-avoidant planning, and slack management.</p>
-    
       </div>
     </div>
 
@@ -394,30 +394,33 @@
         <p class="blurb">An LLM-driven system that generates 3D assembly designs from text and available
           parts, reaching 99.2% placement success with a perturbation-based reset pipeline that improved
           success rates by 353%.</p>
-    
       </div>
     </div>
 
     <div id="older-papers" hidden>
-      <div class="entry entry--nomedia">
+      <div class="entry">
+        <div class="entry-media">
+          <img src="assets/csdl.jpg" alt="CSDL, the Computational System Design Language" loading="lazy" width="480" height="270">
+        </div>
         <div class="entry-body">
           <p class="entry-title">
             <a href="https://arc.aiaa.org/doi/10.2514/6.2024-1803" target="_blank" rel="noopener noreferrer">Static Task Scheduling for Parallel Execution of Large-Scale Multidisciplinary Design Optimization Models</a>
           </p>
           <p class="authors">Mark Sperry, <span class="me">Kavish Kondap</span>, John T. Hwang</p>
           <p class="venue">AIAA SciTech Forum 2024</p>
-      
         </div>
       </div>
 
-      <div class="entry entry--nomedia">
+      <div class="entry">
+        <div class="entry-media">
+          <img src="assets/csdl.jpg" alt="CSDL, the Computational System Design Language" loading="lazy" width="480" height="270">
+        </div>
         <div class="entry-body">
           <p class="entry-title">
             <a href="https://arc.aiaa.org/doi/10.2514/6.2023-3721" target="_blank" rel="noopener noreferrer">Automatic Adjoint Sensitivity Analysis of Models for Large-Scale Multidisciplinary Design Optimization</a>
           </p>
           <p class="authors">Mark Sperry, <span class="me">Kavish Kondap</span>, John T. Hwang</p>
           <p class="venue">AIAA AVIATION Forum 2023</p>
-      
         </div>
       </div>
     </div>
@@ -431,7 +434,7 @@
 
     <div class="entry">
       <div class="entry-media">
-        <img src="assets/splatmaps.jpg" alt="3D Gaussian Splat scene of a graffiti-covered wall" loading="lazy" width="480">
+        <img src="assets/splatmaps.jpg" alt="3D Gaussian Splat scene of a graffiti-covered wall" loading="lazy" width="480" height="270">
       </div>
       <div class="entry-body">
         <p class="entry-title"><a href="https://youtu.be/-liOyvuZ8IU" target="_blank" rel="noopener noreferrer">SplatMaps</a></p>
@@ -439,7 +442,6 @@
           WebXR <span class="sep">&middot;</span> Oculus <span class="sep">&middot;</span> Oct 2025</p>
         <p class="blurb">A web platform for sharing and viewing 3D Gaussian Splat scenes generated from
           user-uploaded videos, with real-time navigation on desktop and Oculus via WebXR.</p>
-    
       </div>
     </div>
   </section>
