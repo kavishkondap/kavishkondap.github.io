@@ -40,6 +40,16 @@ Static single page: `index.html` (all CSS inline), assets in `assets/`.
   looping, `playsinline`, carry a matching `.jpg` poster, and pause when the
   viewer prefers reduced motion.
 
+## After changing anything in assets/
+
+GitHub Pages serves assets with `cache-control: max-age=600`, and replacing a
+file in place keeps its URL, so browsers can keep showing the old version. Run:
+
+    python3 tools/stamp-assets.py
+
+It appends a content hash to each asset URL (`assets/robosq.jpg?v=4be898ea`), so
+a changed file always gets a new URL. Commit the result alongside the asset.
+
 ## Preview
 
     python3 -m http.server 8000
