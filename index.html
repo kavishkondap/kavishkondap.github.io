@@ -447,13 +447,17 @@
 </div>
 
 <script>
-  // Email address is not present in the page source; it is assembled at runtime
-  // so that crawlers harvesting raw HTML find nothing to scrape.
+  // Email address is not present in the page source; the real mailto: href is
+  // set at runtime so that crawlers harvesting raw HTML find nothing to scrape.
+  // Setting href (rather than intercepting the click and assigning
+  // window.location) keeps these behaving like ordinary links: middle-click,
+  // open-in-new-tab and "copy email address" all work.
   document.querySelectorAll("a.js-email").forEach(function (a) {
-    a.addEventListener("click", function (ev) {
-      ev.preventDefault();
-      window.location.href = "mailto:" + atob(a.dataset.e);
-    });
+    try {
+      a.href = "mailto:" + atob(a.getAttribute("data-e"));
+    } catch (err) {
+      /* leave the href as-is if decoding fails */
+    }
   });
 
   // Respect a reduced-motion preference: hold the poster frame instead of looping.
