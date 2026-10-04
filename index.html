@@ -151,30 +151,10 @@
   .bio { max-width: 648px; }
   .bio p { margin: 0 0 13px; }
   .bio p:last-child { margin-bottom: 0; }
-
-  .featured {
-    max-width: 648px;
-    margin-top: 20px;
-    padding-top: 14px;
-    border-top: 1px solid var(--rule);
-    font-size: 15.5px;
-    color: var(--muted);
-  }
-  .featured-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+  .bio a.feature-link {
     color: var(--accent);
-    margin-right: 8px;
-  }
-  .featured a { color: var(--text); font-weight: 600; }
-  .featured-source {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--faint);
-    margin-left: 5px;
+    border-bottom-color: var(--accent);
+    font-weight: 600;
   }
 
   /* ---------- sections ---------- */
@@ -351,7 +331,9 @@
     <a href="https://goldberg.berkeley.edu/" target="_blank" rel="noopener noreferrer">Ken Goldberg</a>.
     I&rsquo;ve also interned at
     <a href="https://www.janestreet.com/" target="_blank" rel="noopener noreferrer">Jane Street</a>
-    as an ML Research Intern and at
+    as an ML Research Intern, where my work on autoregressive diffusion for market data was
+    <a class="feature-link" href="https://blog.janestreet.com/can-you-use-autoregressive-diffusion-to-generate-market-data/" target="_blank" rel="noopener noreferrer">featured on the Jane Street Tech Blog</a>,
+    and at
     <a href="https://www.amazon.jobs/en/teams/lab126" target="_blank" rel="noopener noreferrer">Amazon Lab126</a>
     as an ML Intern. Along the way I&rsquo;ve been fortunate to receive the
     <a href="https://goldwaterscholarship.gov/" target="_blank" rel="noopener noreferrer">Barry Goldwater Scholarship</a>,
@@ -359,12 +341,6 @@
     Chancellor&rsquo;s Scholarship.</p>
 
     <p>I am originally from San Diego, CA.</p>
-  </div>
-
-  <div class="featured">
-    <span class="featured-label">Featured</span>
-    <a href="https://blog.janestreet.com/can-you-use-autoregressive-diffusion-to-generate-market-data/" target="_blank" rel="noopener noreferrer">Can You Use Autoregressive Diffusion to Generate Market Data?</a>
-    <span class="featured-source">&middot; Jane Street</span>
   </div>
 
   <!-- ============ PAPERS ============ -->
