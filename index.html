@@ -152,6 +152,31 @@
   .bio p { margin: 0 0 13px; }
   .bio p:last-child { margin-bottom: 0; }
 
+  .featured {
+    max-width: 648px;
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+    font-size: 15.5px;
+    color: var(--muted);
+  }
+  .featured-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-right: 8px;
+  }
+  .featured a { color: var(--text); font-weight: 600; }
+  .featured-source {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--faint);
+    margin-left: 5px;
+  }
+
   /* ---------- sections ---------- */
 
   section { margin-top: 50px; }
@@ -334,6 +359,12 @@
     Chancellor&rsquo;s Scholarship.</p>
 
     <p>I am originally from San Diego, CA.</p>
+  </div>
+
+  <div class="featured">
+    <span class="featured-label">Featured</span>
+    <a href="https://blog.janestreet.com/can-you-use-autoregressive-diffusion-to-generate-market-data/" target="_blank" rel="noopener noreferrer">Can You Use Autoregressive Diffusion to Generate Market Data?</a>
+    <span class="featured-source">&middot; Jane Street</span>
   </div>
 
   <!-- ============ PAPERS ============ -->
